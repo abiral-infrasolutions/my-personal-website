@@ -2,173 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NHPC – Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abiral Infra Solutions Pvt. Ltd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --main-color: #085b94;
-      --accent: #4ea8de;
-      --text: #1a1a1a;
-      --bg: #f7fafc;
-      --menu-bg: #ffffffcc;
-      --radius: 12px;
+      --primary: #1D3557;
+      --accent: #E63946;
+      --light: #F1FAEE;
+      --dark: #1B1B1B;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 40px 20px;
     }
 
-    /* Hero Video Section */
-    header.hero-video-container {
-      position: relative;
-      width: 100%;
-      height: 210px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+    .container {
+      max-width: 960px;
+      margin: auto;
     }
 
-    video.hero-video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: fadeInVideo 2s ease-in forwards;
-    }
-
-    @keyframes fadeInVideo {
-      to { opacity: 1; }
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 2;
-      padding: 1em 1.2em;
-      background: rgba(0, 0, 0, 0.45);
-      color: #fff;
-      font-size: 1.4em;
-      width: 100%;
+    header {
       text-align: center;
-      border-radius: 0 0 var(--radius) var(--radius);
+      margin-bottom: 30px;
     }
 
-    /* Navigation */
-    nav {
-      width: 100%;
-      background: var(--menu-bg);
-      box-shadow: 0 2px 6px #0001;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5em;
-      justify-content: center;
-      padding: 0.6em 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
     }
 
-    nav a {
-      text-decoration: none;
-      color: var(--main-color);
-      font-weight: 500;
-      padding: 0.4em 1em;
-      border-radius: var(--radius);
-      transition: background 0.2s;
-      font-size: 1.05em;
+    .bar {
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent);
+      margin: 12px auto 32px;
+      border-radius: 2px;
     }
 
-    nav a:hover,
-    nav a.active {
-      background: var(--accent);
-      color: #fff;
+    section {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
     }
 
-    /* Main Content */
-    main {
-      max-width: 920px;
-      margin: 30px auto;
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 12px #0002;
-      padding: 2em;
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
     }
 
     footer {
       text-align: center;
-      background: #fff;
-      color: #666;
-      padding: 1em 0 0.8em 0;
-      font-size: 1em;
-      border-top: 1px solid #eee;
-      margin-top: 35px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #555;
     }
 
-    @media (max-width: 700px) {
-      .hero-text {
-        font-size: 1em;
-        padding: 0.8em;
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
       }
 
-      nav a {
-        font-size: 0.95em;
-        padding: 0.4em 0.8em;
+      p {
+        font-size: 1rem;
       }
 
-      main {
-        margin: 20px 2vw;
-        padding: 1.5em 1em;
+      h2 {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section with Video Background -->
-  <header class="hero-video-container" role="banner" aria-label="Hydropower Project">
-    <video class="hero-video" autoplay muted loop playsinline poster="fallback.jpg">
-      <source src="asdf.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-text">
-      Clean Energy for Nepal's Future
-    </div>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Abiral Infra Solutions Pvt. Ltd.</h1>
+      <div class="bar"></div>
+    </header>
 
-  <!-- Navigation Menu -->
-  <nav>
-    <a href="hindex.html" class="active">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="news.html">News</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+    <section>
+      <h2>Welcome to Abiral Infra Solutions</h2>
+      <p>
+        At Abiral Infra Solutions, we are committed to building the future with innovation, integrity, and sustainability.
+        Specializing in civil construction, infrastructure development, and engineering consulting, our team brings together
+        expertise and passion to deliver reliable and cost-effective solutions. Whether it’s roads, buildings, water systems,
+        or project management, we believe in empowering communities and creating long-lasting impact through every project we undertake.
+      </p>
+    </section>
 
-  <!-- Main Content -->
-  <main>
-    <h1>Welcome to NHPC</h1>
-    <p>
-      NHPC is committed to developing sustainable hydropower projects that power the nation's progress while preserving its natural heritage. 
-      Explore our ongoing projects, latest updates, and opportunities to collaborate.
-    </p>
-    <p>
-      As we lead the way in clean energy innovation, your support and partnership are vital. Together, we can build a resilient and energy-secure Nepal.
-    </p>
-  </main>
+    <section>
+      <h2>अभिरल इन्फ्रासोलुसन्स प्रा.लि. मा स्वागत छ</h2>
+      <p>
+        हामी भविष्य निर्माणमा प्रतिबद्ध छौं — नवीनता, इमानदारी र दिगोपनको आधारमा।
+        नागरिक निर्माण, पूर्वाधार विकास तथा इन्जिनियरिङ सल्लाह सेवामा विशेष दक्षता राख्दै,
+        हाम्रो टिमले भरपर्दो र लागत–प्रभावकारी समाधानहरू प्रदान गर्दै आएको छ।
+        सडक, भवन, खानेपानी प्रणाली वा परियोजना व्यवस्थापन होस् —
+        हामी हरेक योजनामार्फत समुदायलाई सशक्त बनाउँदै दीर्घकालीन प्रभाव सिर्जना गर्ने लक्ष्यमा छौं।
+      </p>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 NHPC. All rights reserved.
-  </footer>
+    <footer>
+      © 2025 Abiral Infra Solutions Pvt. Ltd. | Designed with purpose in Nepal
+    </footer>
+  </div>
 
 </body>
 </html>
