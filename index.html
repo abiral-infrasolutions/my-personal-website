@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NHPC – Message from the Chairman</title>
+  <title>NHPC – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
@@ -13,21 +13,57 @@
       --menu-bg: #ffffffcc;
       --radius: 12px;
     }
-    html, body {
-      margin: 0; padding: 0;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
     }
-    header.hero-img {
+
+    /* Hero Video Section */
+    header.hero-video-container {
+      position: relative;
       width: 100%;
       height: 210px;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center center/cover no-repeat;
-      position: relative;
+      overflow: hidden;
       display: flex;
-      align-items: end;
-      justify-content: start;
+      align-items: flex-end;
+      justify-content: center;
     }
+
+    video.hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeInVideo 2s ease-in forwards;
+    }
+
+    @keyframes fadeInVideo {
+      to { opacity: 1; }
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      padding: 1em 1.2em;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      font-size: 1.4em;
+      width: 100%;
+      text-align: center;
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+
+    /* Navigation */
     nav {
       width: 100%;
       background: var(--menu-bg);
@@ -37,64 +73,35 @@
       gap: 0.5em;
       justify-content: center;
       padding: 0.6em 0;
-      position: sticky; top: 0; z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
     nav a {
       text-decoration: none;
       color: var(--main-color);
       font-weight: 500;
-      padding: 0.3em 1em;
+      padding: 0.4em 1em;
       border-radius: var(--radius);
       transition: background 0.2s;
       font-size: 1.05em;
     }
-    nav a:hover, nav a.active {
+
+    nav a:hover,
+    nav a.active {
       background: var(--accent);
       color: #fff;
     }
 
+    /* Main Content */
     main {
       max-width: 920px;
-      margin: -60px auto 30px auto;
+      margin: 30px auto;
       background: #fff;
       border-radius: var(--radius);
       box-shadow: 0 2px 12px #0002;
-      padding: 2em 2em 1.3em 2em;
-      position: relative;
-      z-index: 2;
-    }
-
-    .message-flex {
-      display: flex;
-      align-items: flex-start;
-      gap: 32px;
-      margin-top: 1.6em;
-      flex-wrap: wrap;
-    }
-    .chairman-photo {
-      flex-shrink: 0;
-      width: 170px;
-      height: 200px;
-      border-radius: var(--radius);
-      object-fit: cover;
-      box-shadow: 0 2px 8px #0002;
-      background: #eee;
-    }
-    .message-text {
-      flex: 1;
-      font-size: 1.08em;
-      line-height: 1.7;
-    }
-    .chairman-name {
-      font-size: 1.15em;
-      font-weight: bold;
-      margin-top: 1em;
-      margin-bottom: 0.2em;
-      color: var(--main-color);
-    }
-    .chairman-title {
-      color: #777;
-      font-size: 1em;
+      padding: 2em;
     }
 
     footer {
@@ -108,74 +115,57 @@
     }
 
     @media (max-width: 700px) {
+      .hero-text {
+        font-size: 1em;
+        padding: 0.8em;
+      }
+
+      nav a {
+        font-size: 0.95em;
+        padding: 0.4em 0.8em;
+      }
+
       main {
-        margin: -80px 2vw 20px 2vw;
-        padding: 1.3em 0.8em 1em 0.8em;
+        margin: 20px 2vw;
+        padding: 1.5em 1em;
       }
-      .message-flex {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .chairman-photo {
-        width: 80vw;
-        max-width: 260px;
-        height: 140px;
-        margin: 0 auto;
-        display: block;
-      }
-    }
-    @media (max-width: 400px) {
-      nav a { font-size: 0.93em; padding: 0.4em 0.7em;}
-      .chairman-photo { max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Hydropower Image -->
-  <header class="hero-img" role="banner" aria-label="Hydropower Project"></header>
+  <!-- Hero Section with Video Background -->
+  <header class="hero-video-container" role="banner" aria-label="Hydropower Project">
+    <video class="hero-video" autoplay muted loop playsinline poster="fallback.jpg">
+      <source src="asdf.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-text">
+      Clean Energy for Nepal's Future
+    </div>
+  </header>
 
-  <!-- Navigation -->
+  <!-- Navigation Menu -->
   <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="project.html">Project</a>
-    <a href="opportunities.html">Opportunities</a>
-    <a href="report.html">Report</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="news.html">News & Event</a>
+    <a href="hindex.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="news.html">News</a>
     <a href="contact.html">Contact Us</a>
   </nav>
 
-  <!-- Main Message Content -->
+  <!-- Main Content -->
   <main>
-    <h1 style="margin-bottom:0.4em; color:var(--main-color);font-size:1.6em;">
-      Message from the Chairman
-    </h1>
-
-    <section class="message-flex">
-      <img src="https://randomuser.me/api/portraits/men/17.jpg"
-        alt="Chairman Portrait"
-        class="chairman-photo">
-      <div class="message-text">
-        <p>
-          Nearly a decade ago, our team accepted the challenge of reviving this company. We faced significant financial, legal, and operational hurdles, but through hard work, patience, and collective commitment, we achieved a remarkable turnaround.
-        </p>
-        <p>
-          This journey was never guaranteed. It was the support of shareholders, guidance from advisors, and the dedication of our board and staff that made recovery possible. We now have a renewed responsibility to strive for excellence and set a benchmark for others facing adversity.
-        </p>
-        <p>
-          Yet, our journey is far from over. At 25, the company is ready for new ambitions and growth. We will look forward—embracing honesty, transparency, and ethical standards, while fostering an inclusive, safe, and empowering environment for all.
-        </p>
-        <p>
-          I pledge to all stakeholders: we will do everything necessary to make NHPC a respected leader in clean energy, delivering value for Nepal and our shareholders. Your continued support and guidance will remain vital as we embark on this new chapter.
-        </p>
-        <div class="chairman-name">[Name of Chairman]</div>
-        <div class="chairman-title">Chairman, NHPC</div>
-      </div>
-    </section>
+    <h1>Welcome to NHPC</h1>
+    <p>
+      NHPC is committed to developing sustainable hydropower projects that power the nation's progress while preserving its natural heritage. 
+      Explore our ongoing projects, latest updates, and opportunities to collaborate.
+    </p>
+    <p>
+      As we lead the way in clean energy innovation, your support and partnership are vital. Together, we can build a resilient and energy-secure Nepal.
+    </p>
   </main>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 NHPC. All rights reserved.
   </footer>
