@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | abiral-infrasolutions Pvt. Ltd.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --sidebar-width: 220px;
+      --accent: #2d80a0;
+      --background: #f5f8fa;
+      --main: #fff;
+      --text: #212121;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { background: var(--background); color: var(--text); min-height: 100vh; display: flex; }
+    nav {
+      width: var(--sidebar-width);
+      background: var(--accent);
+      color: #fff;
+      min-height: 100vh;
+      padding-top: 2rem;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul { list-style: none; }
+    nav li { margin-bottom: 1.6rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.6rem 1.2rem;
+      display: block;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    nav a.active, nav a:hover { background: rgba(255,255,255,0.17); }
+    main {
+      margin-left: var(--sidebar-width);
+      padding: 2.2rem 1rem 2rem 1.8rem;
+      width: 100%;
+      background: var(--main);
+      min-height: 100vh;
+      box-shadow: 0 0 14px 0 #0001;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.7rem; color: var(--accent);}
+    h2 { font-size: 1.2rem; color: #607d8b; margin-bottom: 1rem;}
+    .contact-details { margin-top: 1.6rem; line-height: 1.75; }
+    .contact-details b { color: var(--accent);}
+    @media (max-width: 900px) {
+      nav { width: 54vw; min-width: 140px; }
+      main { margin-left: 54vw; }
+    }
+    @media (max-width: 600px) {
+      nav { position: relative; width: 100vw; min-width: unset; padding-top: 0.5rem;}
+      nav ul { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around;}
+      nav li { margin: 0.2rem 0.5rem; }
+      main { margin-left: 0; padding: 1rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="personnel.html">Personnel</a></li>
+      <li><a href="rnd.html">Research & Development</a></li>
+      <li><a href="products.html">Products & Services</a></li>
+      <li><a href="contact.html" class="active">Contact Us</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Contact Us</h1>
+    <h2>Get in touch with abiral-infrasolutions Pvt. Ltd.</h2>
+    <div class="contact-details">
+      <b>Registered Office:</b><br>
+      Balkot, Bhaktapur Metropolitan City,<br>
+      Ward No. 2, Province-3, Nepal<br>
+      <br>
+      <b>Phone:</b> <br>
+      <span>+977-9800000000</span>
+      <br><br>
+      <b>Email:</b> <br>
+      <span>info@abiral-infrasolutions.com</span>
+      <br><br>
+      <b>Registration Number:</b> 311790/2077-078<br>
+      <b>PAN Number:</b> 610530462<br>
+      <b>Date of Incorporation:</b> 2077-08-09 B.S. (Approx. November 2020 A.D.)<br>
+      <br>
+      <b>Contact Person:</b><br>
+      Ram Sharma (Managing Director)<br>
+      Email: ram.sharma@abiral-infrasolutions.com<br>
+      Mobile: +977-9800000001<br>
+      <br>
+      <b>Working Hours:</b> <br>
+      Sunday – Friday: 10:00 AM – 5:00 PM <br>
+      Saturday: Closed
+    </div>
+  </main>
+</body>
+</html>
