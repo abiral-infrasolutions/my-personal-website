@@ -6,58 +6,78 @@
   <title>Personnel | abiral-infrasolutions Pvt. Ltd.</title>
   <style>
     :root {
-      --main-bg: #f8fafc;
-      --menu-bg: #1e293b;
-      --menu-text: #fff;
-      --accent: #2563eb;
-      --content-bg: #fff;
-      --content-text: #222;
-      --radius: 1rem;
+      --main-bg: #f5f7fa;
+      --menu-bg: #22344e;
+      --menu-accent: #446cb3;
+      --text-main: #222;
+      --text-menu: #fff;
+      --highlight: #efaa3d;
+      --radius: 1.2rem;
     }
     body {
       margin: 0;
-      background: var(--main-bg);
       font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .container {
-      display: flex;
+      background: var(--main-bg);
+      color: var(--text-main);
       min-height: 100vh;
+      display: flex;
     }
     nav {
       background: var(--menu-bg);
-      color: var(--menu-text);
       min-width: 220px;
-      padding: 2rem 1rem 2rem 2rem;
+      width: 220px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      border-radius: 0 var(--radius) var(--radius) 0;
+      padding-top: 40px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
+      position: fixed;
+      z-index: 10;
+      transition: width 0.2s;
+    }
+    nav h1 {
+      color: var(--highlight);
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 2.5em;
+      letter-spacing: 1px;
     }
     nav a {
-      color: var(--menu-text);
+      color: var(--text-menu);
       text-decoration: none;
-      font-size: 1.1rem;
-      padding: 0.6rem 1rem;
-      border-radius: 0.7rem;
-      transition: background 0.2s;
+      padding: 16px 32px;
+      font-size: 1.08em;
+      border-left: 4px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+      margin-bottom: 4px;
     }
-    nav a.active,
-    nav a:hover {
-      background: var(--accent);
-      color: #fff;
+    nav a.active, nav a:hover {
+      background: var(--menu-accent);
+      border-left: 4px solid var(--highlight);
+    }
+    .main-container {
+      display: flex;
+      margin-left: 220px;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
     main {
-      flex: 1;
-      padding: 2.5rem 2rem;
-      background: var(--content-bg);
-      color: var(--content-text);
+      flex: 1 1 0%;
+      padding: 2em 5vw;
+      max-width: 950px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
       border-radius: var(--radius);
-      margin: 2rem 2rem 2rem 0;
-      box-shadow: 0 2px 16px rgba(30, 41, 59, 0.08);
+      margin: 2.2em 2em 2.2em 0;
+      box-shadow: 0 2px 20px rgba(60,80,120,0.07);
     }
-    h1, h2 {
-      color: var(--accent);
-      margin-top: 0;
+    h1 {
+      color: var(--highlight);
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
     .team-list {
       display: flex;
@@ -69,14 +89,18 @@
       background: #f1f5f9;
       border-radius: 0.8rem;
       padding: 1.5rem 1.2rem;
-      flex: 1 1 250px;
-      min-width: 220px;
-      box-shadow: 0 2px 8px rgba(30, 41, 59, 0.06);
+      flex: 1 1 260px;
+      min-width: 230px;
+      box-shadow: 0 2px 8px rgba(30, 41, 59, 0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
     .member-title {
       font-weight: 600;
-      color: var(--accent);
+      color: var(--menu-accent);
       margin-bottom: 0.2rem;
+      font-size: 1.15em;
     }
     .member-role {
       font-size: 1rem;
@@ -90,55 +114,37 @@
     }
     .member-link {
       font-size: 0.93em;
-      color: #2563eb;
-      margin-left: 6px;
+      color: var(--menu-accent);
       text-decoration: underline;
+      margin-left: 3px;
     }
-    @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-      }
-      nav {
-        flex-direction: row;
-        min-width: unset;
-        padding: 1rem;
-        border-radius: var(--radius) var(--radius) 0 0;
-        gap: 0.7rem;
-      }
-      main {
-        margin: 0;
-        border-radius: 0 0 var(--radius) var(--radius);
-        padding: 1.3rem 0.8rem;
-      }
-      .team-list {
-        gap: 1rem;
-      }
+    @media (max-width: 800px) {
+      nav { min-width: 60px; width: 60px; padding-top: 10px; }
+      nav h1 { display: none; }
+      nav a { padding: 12px 10px; font-size: 1em; }
+      .main-container { margin-left: 60px; }
+      main { padding: 1.2em 3vw; margin: 1em 0.6em 1em 0; }
+      .team-list { gap: 1rem; }
     }
     @media (max-width: 600px) {
-      nav a {
-        font-size: 1rem;
-        padding: 0.5rem 0.7rem;
-      }
-      main {
-        padding: 1rem 0.5rem;
-      }
-      .team-list {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
+      .main-container { flex-direction: column; margin-left: 54px; }
+      main { padding: 0.7em 2vw; margin: 0.8em 0.4em 0.8em 0; }
+      nav { width: 54px; min-width: 54px; }
+      .team-list { flex-direction: column; gap: 0.8rem;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="personnel.html" class="active">Personnel</a>
-      <a href="rnd.html">Research & Development</a>
-      <a href="products.html">Products & Services</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+  <nav>
+    <h1>abiral-infrasolutions</h1>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="personnel.html" class="active">Personnel</a>
+    <a href="rnd.html">Research & Development</a>
+    <a href="products.html">Products & Services</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="main-container">
     <main>
       <h1>Personnel</h1>
       <p>
@@ -177,12 +183,11 @@
           <div class="member-title">Environmentalist</div>
           <div class="member-role">Environmental Consultant / Advisor</div>
           <div class="member-desc">
-          Dr. Ram C. Sharma (BSc Forestry, MS Environmental Systems, PhD Earth Sciences)
-          <a class="member-link" href="https://digital-ecosphere.org" target="_blank" rel="noopener">https://digital-ecosphere.org</a><br>
-          Provides leadership in academic publications and environmental assessment, regulatory compliance, natural resource management, and sustainability planning. Responsible for guiding environmental policy integration, conducting impact studies, and advising on climate adaptation and biodiversity with research assistant: Jessica Shakya (BSc Forestry).
+            Dr. Ram C. Sharma (BSc Forestry, MS Environmental Systems, PhD Earth Sciences)
+            <a class="member-link" href="https://digital-ecosphere.org" target="_blank" rel="noopener">https://digital-ecosphere.org</a><br>
+            Provides leadership in academic publications and environmental assessment, regulatory compliance, natural resource management, and sustainability planning. Responsible for guiding environmental policy integration, conducting impact studies, and advising on climate adaptation and biodiversity with research assistant: Jessica Shakya (BSc Forestry).
+          </div>
         </div>
-      </div>
-
         <div class="team-member">
           <div class="member-title">Administrative & Support Staff</div>
           <div class="member-role">Administration</div>
