@@ -53,26 +53,71 @@
       background: var(--menu-accent);
       border-left: 4px solid var(--highlight);
     }
-    main {
+    .content-wrap {
       margin-left: 220px;
-      padding: 2em 5vw;
-      max-width: 750px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       width: 100%;
+      min-height: 100vh;
+      padding: 0;
     }
-    h2 {
-      color: var(--highlight);
-      margin-top: 0.5em;
+    main {
+      flex: 1 1 0;
+      padding: 2em 2vw 2em 5vw;
+      max-width: 750px;
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
-    @media (max-width: 800px) {
+    .video-right {
+      flex: 0 0 350px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 2em 2em 0 0;
+      min-width: 240px;
+    }
+    .video-right video {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(60,80,120,0.09);
+      background: #000;
+      outline: none;
+      display: block;
+      aspect-ratio: 16/9;
+    }
+    @media (max-width: 1100px) {
+      .video-right { flex: 0 0 220px; min-width: 160px; padding: 2em 1em 0 0; }
+      .video-right video { max-width: 200px; }
+    }
+    @media (max-width: 900px) {
       nav { min-width: 60px; width: 60px; padding-top: 10px; }
       nav h1 { display: none; }
       nav a { padding: 12px 10px; font-size: 1em; }
-      main { margin-left: 60px; padding: 1.2em 3vw; }
+      .content-wrap { margin-left: 60px; }
+      main { padding-left: 3vw; }
+    }
+    @media (max-width: 700px) {
+      .content-wrap {
+        flex-direction: column;
+        margin-left: 60px;
+      }
+      .video-right {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        padding: 1em 0 0 0;
+      }
+      .video-right video { max-width: 100%; }
     }
     @media (max-width: 500px) {
       nav { position: fixed; width: 54px; min-width: 54px; }
-      main { margin-left: 54px; padding: 0.7em 2vw; }
+      .content-wrap { margin-left: 54px; }
+      main { padding: 0.7em 2vw; }
       h2 { font-size: 1.1em; }
+      .video-right { padding: 0.5em 0 0 0; }
     }
   </style>
 </head>
@@ -86,35 +131,50 @@
     <a href="products.html">Products & Services</a>
     <a href="contact.html">Contact Us</a>
   </nav>
-  <main>
-    <h2>Welcome to abiral-infrasolutions Pvt. Ltd.</h2>
-    <p>
-      abiral-infrasolutions Pvt. Ltd. is a leading infrastructure development company committed to delivering innovative, sustainable, and high-quality engineering solutions in Nepal and beyond.
-    </p>
-    <p>
-      Our company specializes in a broad range of civil engineering projects, research and development initiatives, and advanced products and services tailored to the needs of government, public, and private sector clients.
-    </p>
-    <p>
-      Driven by expertise, professionalism, and a passion for excellence, our multidisciplinary team ensures that each project meets the highest standards of quality, safety, and environmental stewardship.
-    </p>
-    <h3>Our Vision</h3>
-    <p>
-      To be a pioneer in infrastructure innovation, shaping the future of sustainable development through research, technology, and outstanding service delivery.
-    </p>
-    <h3>Our Mission</h3>
-    <ul>
-      <li>Deliver state-of-the-art infrastructure solutions with integrity and professionalism.</li>
-      <li>Promote research and development for continuous improvement and knowledge creation.</li>
-      <li>Support national growth and prosperity through responsible engineering practices.</li>
-      <li>Ensure client satisfaction by maintaining transparency, quality, and timely completion of projects.</li>
-    </ul>
-    <h3>Why Choose Us?</h3>
-    <ul>
-      <li>Extensive experience in infrastructure projects and research.</li>
-      <li>Commitment to innovation, quality, and ethical practices.</li>
-      <li>Skilled professionals with expertise in multiple domains.</li>
-      <li>Customer-focused approach for reliable and sustainable outcomes.</li>
-    </ul>
-  </main>
+  <div class="content-wrap">
+    <main>
+      <h2>Welcome to abiral-infrasolutions Pvt. Ltd.</h2>
+      <p>
+        abiral-infrasolutions Pvt. Ltd. is a leading infrastructure development company committed to delivering innovative, sustainable, and high-quality engineering solutions in Nepal and beyond.
+      </p>
+      <p>
+        Our company specializes in a broad range of civil engineering projects, research and development initiatives, and advanced products and services tailored to the needs of government, public, and private sector clients.
+      </p>
+      <p>
+        Driven by expertise, professionalism, and a passion for excellence, our multidisciplinary team ensures that each project meets the highest standards of quality, safety, and environmental stewardship.
+      </p>
+      <h3>Our Vision</h3>
+      <p>
+        To be a pioneer in infrastructure innovation, shaping the future of sustainable development through research, technology, and outstanding service delivery.
+      </p>
+      <h3>Our Mission</h3>
+      <ul>
+        <li>Deliver state-of-the-art infrastructure solutions with integrity and professionalism.</li>
+        <li>Promote research and development for continuous improvement and knowledge creation.</li>
+        <li>Support national growth and prosperity through responsible engineering practices.</li>
+        <li>Ensure client satisfaction by maintaining transparency, quality, and timely completion of projects.</li>
+      </ul>
+      <h3>Why Choose Us?</h3>
+      <ul>
+        <li>Extensive experience in infrastructure projects and research.</li>
+        <li>Commitment to innovation, quality, and ethical practices.</li>
+        <li>Skilled professionals with expertise in multiple domains.</li>
+        <li>Customer-focused approach for reliable and sustainable outcomes.</li>
+      </ul>
+    </main>
+    <div class="video-right">
+      <video id="introVideo" src="asdf.mp4" muted autoplay loop playsinline></video>
+    </div>
+  </div>
+  <script>
+    // Ensures only first 10s is looped, regardless of video duration
+    const video = document.getElementById('introVideo');
+    video.addEventListener('timeupdate', function () {
+      if (video.currentTime >= 10) {
+        video.currentTime = 0;
+        video.play();
+      }
+    });
+  </script>
 </body>
 </html>
