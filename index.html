@@ -187,7 +187,7 @@
     // Loop only the first 3 seconds of the video
     const video = document.getElementById('introVideo');
     video.addEventListener('timeupdate', function () {
-      if (video.currentTime >= 3) {
+      if (video.currentTime >= 2) {
         video.currentTime = 0;
         video.play();
       }
