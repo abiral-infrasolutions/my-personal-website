@@ -5,20 +5,61 @@
   <title>Research & Development | abiral-infrasolutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --sidebar-width: 210px;
+      --accent: #2d80a0;
+      --background: #f8fafc;
+      --main: #fff;
+      --text: #22223b;
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8fafc;
-      color: #22223b;
+      background: var(--background);
+      color: var(--text);
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      display: flex;
+    }
+    nav {
+      width: var(--sidebar-width);
+      background: var(--accent);
+      color: #fff;
+      min-height: 100vh;
+      padding-top: 2rem;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul { list-style: none; padding: 0; }
+    nav li { margin-bottom: 1.4rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.7rem 1.2rem;
+      display: block;
+      border-radius: 7px;
+      transition: background 0.2s;
+    }
+    nav a.active, nav a:hover { background: rgba(255,255,255,0.16);}
+    main {
+      margin-left: var(--sidebar-width);
+      width: 100%;
+      padding: 2.2rem 1rem 2rem 2.2rem;
+      background: var(--main);
+      min-height: 100vh;
+      box-shadow: 0 0 14px 0 #0001;
     }
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
       background: #fff;
       border-radius: 1.25rem;
       box-shadow: 0 4px 16px rgba(30, 41, 59, 0.09);
+      padding: 2rem;
     }
     h1 {
       color: #0a1128;
@@ -33,41 +74,65 @@
       padding-left: 1.4em;
       margin-bottom: 1.5em;
     }
+    @media (max-width: 900px) {
+      nav { width: 32vw; min-width: 120px; }
+      main { margin-left: 32vw; padding-left: 1.1rem;}
+    }
     @media (max-width: 600px) {
-      .container { padding: 1rem; }
+      nav {
+        position: relative; width: 100vw; min-width: unset; padding-top: 0.5rem;
+      }
+      nav ul {
+        display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around;
+      }
+      nav li { margin: 0.2rem 0.7rem; }
+      main { margin-left: 0; padding: 1rem 0.5rem;}
+      .container { padding: 1rem; border-radius: 0.6rem;}
       h1 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Research &amp; Development</h1>
-    <p>
-      At <strong>abiral-infrasolutions Pvt. Ltd.</strong>, our Research & Development (R&amp;D) efforts focus on innovating across infrastructure, technology, environment, and geospatial intelligence. We are committed to advancing solutions that address Nepal’s growing infrastructure needs, enhance environmental stewardship, and improve efficiency through the use of modern tools and analytics.
-    </p>
-
-    <h2>Key R&amp;D Areas</h2>
+  <nav>
     <ul>
-      <li><strong>Infrastructure Planning and Innovation:</strong> Researching new approaches in road, bridge, water supply, sanitation, and other civil works, integrating cost-effective and sustainable technologies.</li>
-      <li><strong>Geospatial Intelligence:</strong> Utilizing GIS, remote sensing, and spatial data analysis for infrastructure monitoring, resource management, and disaster risk reduction.</li>
-      <li><strong>Environmental Solutions:</strong> Developing sustainable practices for environmental assessment, climate adaptation, natural resource conservation, and impact mitigation.</li>
-      <li><strong>Smart Construction &amp; Materials:</strong> Investigating advanced construction materials and automation, promoting quality assurance and digital construction management.</li>
-      <li><strong>Renewable Energy:</strong> Promoting research on solar, wind, micro-hydro, and alternative energy solutions tailored to local contexts.</li>
-      <li><strong>Water Resources:</strong> R&amp;D for efficient water management, irrigation systems, and river training to support agriculture and community resilience.</li>
-      <li><strong>ICT for Development:</strong> Adopting modern ICT tools for project planning, digital mapping, monitoring, and reporting.</li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="personnel.html">Personnel</a></li>
+      <li><a href="rnd.html" class="active">Research & Development</a></li>
+      <li><a href="products.html">Products & Services</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
+  </nav>
+  <main>
+    <div class="container">
+      <h1>Research &amp; Development</h1>
+      <p>
+        At <strong>abiral-infrasolutions Pvt. Ltd.</strong>, our Research & Development (R&amp;D) efforts focus on innovating across infrastructure, technology, environment, and geospatial intelligence. We are committed to advancing solutions that address Nepal’s growing infrastructure needs, enhance environmental stewardship, and improve efficiency through the use of modern tools and analytics.
+      </p>
 
-    <h2>Our Approach</h2>
-    <ul>
-      <li>Collaborating with national and international academic, research, and professional organizations.</li>
-      <li>Leveraging expertise of engineers, geospatial analysts, environmental experts, and planners.</li>
-      <li>Conducting field studies, pilot projects, and policy-oriented research to inform evidence-based practices.</li>
-      <li>Publishing findings to contribute to Nepal’s development discourse and global knowledge exchange.</li>
-    </ul>
+      <h2>Key R&amp;D Areas</h2>
+      <ul>
+        <li><strong>Infrastructure Planning and Innovation:</strong> Researching new approaches in road, bridge, water supply, sanitation, and other civil works, integrating cost-effective and sustainable technologies.</li>
+        <li><strong>Geospatial Intelligence:</strong> Utilizing GIS, remote sensing, and spatial data analysis for infrastructure monitoring, resource management, and disaster risk reduction.</li>
+        <li><strong>Environmental Solutions:</strong> Developing sustainable practices for environmental assessment, climate adaptation, natural resource conservation, and impact mitigation.</li>
+        <li><strong>Smart Construction &amp; Materials:</strong> Investigating advanced construction materials and automation, promoting quality assurance and digital construction management.</li>
+        <li><strong>Renewable Energy:</strong> Promoting research on solar, wind, micro-hydro, and alternative energy solutions tailored to local contexts.</li>
+        <li><strong>Water Resources:</strong> R&amp;D for efficient water management, irrigation systems, and river training to support agriculture and community resilience.</li>
+        <li><strong>ICT for Development:</strong> Adopting modern ICT tools for project planning, digital mapping, monitoring, and reporting.</li>
+      </ul>
 
-    <p>
-      Our R&amp;D division is dedicated to delivering innovative, practical, and sustainable solutions that add value to our clients, partners, and the wider community.
-    </p>
-  </div>
+      <h2>Our Approach</h2>
+      <ul>
+        <li>Collaborating with national and international academic, research, and professional organizations.</li>
+        <li>Leveraging expertise of engineers, geospatial analysts, environmental experts, and planners.</li>
+        <li>Conducting field studies, pilot projects, and policy-oriented research to inform evidence-based practices.</li>
+        <li>Publishing findings to contribute to Nepal’s development discourse and global knowledge exchange.</li>
+      </ul>
+
+      <p>
+        Our R&amp;D division is dedicated to delivering innovative, practical, and sustainable solutions that add value to our clients, partners, and the wider community.
+      </p>
+    </div>
+  </main>
 </body>
 </html>
