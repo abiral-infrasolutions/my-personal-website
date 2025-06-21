@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | abiral-infrasolutions Pvt. Ltd.</title>
+  <style>
+    :root {
+      --main-bg: #f8fafc;
+      --menu-bg: #1e293b;
+      --menu-text: #fff;
+      --accent: #2563eb;
+      --content-bg: #fff;
+      --content-text: #222;
+      --radius: 1rem;
+    }
+    body {
+      margin: 0;
+      background: var(--main-bg);
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    nav {
+      background: var(--menu-bg);
+      color: var(--menu-text);
+      min-width: 220px;
+      padding: 2rem 1rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    nav a {
+      color: var(--menu-text);
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.6rem 1rem;
+      border-radius: 0.7rem;
+      transition: background 0.2s;
+    }
+    nav a.active,
+    nav a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      padding: 2.5rem 2rem;
+      background: var(--content-bg);
+      color: var(--content-text);
+      border-radius: var(--radius);
+      margin: 2rem 2rem 2rem 0;
+      box-shadow: 0 2px 16px rgba(30, 41, 59, 0.08);
+    }
+    h1, h2 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    ul {
+      margin-left: 1.2rem;
+    }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      nav {
+        flex-direction: row;
+        min-width: unset;
+        padding: 1rem;
+        border-radius: var(--radius) var(--radius) 0 0;
+        gap: 0.7rem;
+      }
+      main {
+        margin: 0;
+        border-radius: 0 0 var(--radius) var(--radius);
+        padding: 1.3rem 0.8rem;
+      }
+    }
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 1rem;
+        padding: 0.5rem 0.7rem;
+      }
+      main {
+        padding: 1rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="personnel.html">Personnel</a>
+      <a href="rnd.html">Research & Development</a>
+      <a href="products.html">Products & Services</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <main>
+      <h1>About Us</h1>
+      <h2>Legal Information</h2>
+      <p>
+        <strong>abiral-infrasolutions Pvt. Ltd.</strong> is a registered private limited company under the Companies Act of Nepal, dedicated to providing comprehensive infrastructure and engineering solutions.
+      </p>
+      <ul>
+        <li><b>Company Registration No.:</b> [Enter Registration Number]</li>
+        <li><b>PAN (Permanent Account Number):</b> [Enter PAN]</li>
+        <li><b>Legal Address:</b> [Enter Official Address as per MoA, e.g., Ward, Municipality, District, Nepal]</li>
+        <li><b>Type of Company:</b> Private Limited Company</li>
+        <li><b>Date of Establishment:</b> [B.S. Date and English Equivalent]</li>
+        <li><b>Directors:</b> [Director Name(s) as per MoA, e.g., Mr. Madan Subedi]</li>
+      </ul>
+      <h2>Our Business</h2>
+      <p>
+        abiral-infrasolutions Pvt. Ltd. is established with the primary objective of supporting national infrastructure growth and development, including but not limited to:
+      </p>
+      <ul>
+        <li>Planning, design, construction, maintenance, and development of infrastructure projects such as roads, bridges, buildings, hydropower, telecommunications, water supply, and irrigation.</li>
+        <li>Providing consulting, project management, and engineering services in civil and related sectors.</li>
+        <li>Supplying, trading, and leasing of construction materials, machinery, and equipment.</li>
+        <li>Engaging in any other legal business activities as permitted by Nepali law relevant to infrastructure and engineering development.</li>
+      </ul>
+    </main>
+  </div>
+</body>
+</html>
