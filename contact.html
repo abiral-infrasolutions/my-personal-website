@@ -6,99 +6,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --sidebar-width: 220px;
-      --accent: #2d80a0;
-      --background: #f5f8fa;
-      --main: #fff;
-      --text: #212121;
+      --main-bg: #f5f7fa;
+      --menu-bg: #22344e;
+      --menu-accent: #446cb3;
+      --text-main: #222;
+      --text-menu: #fff;
+      --highlight: #efaa3d;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-    body { background: var(--background); color: var(--text); min-height: 100vh; display: flex; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+    }
     nav {
-      width: var(--sidebar-width);
-      background: var(--accent);
-      color: #fff;
+      background: var(--menu-bg);
+      min-width: 220px;
+      width: 220px;
       min-height: 100vh;
-      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      padding-top: 40px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.04);
       position: fixed;
-      left: 0;
-      top: 0;
       z-index: 10;
+      transition: width 0.2s;
     }
-    nav ul { list-style: none; }
-    nav li { margin-bottom: 1.6rem; }
+    nav h1 {
+      color: var(--highlight);
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 2.5em;
+      letter-spacing: 1px;
+    }
     nav a {
-      color: #fff;
+      color: var(--text-menu);
       text-decoration: none;
-      font-size: 1.1rem;
-      padding: 0.6rem 1.2rem;
-      display: block;
-      border-radius: 6px;
-      transition: background 0.2s;
+      padding: 16px 32px;
+      font-size: 1.08em;
+      border-left: 4px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+      margin-bottom: 4px;
     }
-    nav a.active, nav a:hover { background: rgba(255,255,255,0.17); }
-    main {
-      margin-left: var(--sidebar-width);
-      padding: 2.2rem 1rem 2rem 1.8rem;
+    nav a.active, nav a:hover {
+      background: var(--menu-accent);
+      border-left: 4px solid var(--highlight);
+    }
+    .main-container {
+      display: flex;
+      margin-left: 220px;
       width: 100%;
-      background: var(--main);
       min-height: 100vh;
-      box-shadow: 0 0 14px 0 #0001;
+      box-sizing: border-box;
     }
-    h1 { font-size: 2rem; margin-bottom: 0.7rem; color: var(--accent);}
-    h2 { font-size: 1.2rem; color: #607d8b; margin-bottom: 1rem;}
-    .contact-details { margin-top: 1.6rem; line-height: 1.75; }
-    .contact-details b { color: var(--accent);}
-    @media (max-width: 900px) {
-      nav { width: 54vw; min-width: 140px; }
-      main { margin-left: 54vw; }
+    main {
+      flex: 1 1 0%;
+      padding: 2em 5vw;
+      max-width: 750px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+      color: var(--highlight);
+    }
+    h2 {
+      color: #3a506b;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-details {
+      margin-top: 1.6rem;
+      line-height: 1.75;
+      font-size: 1.12em;
+    }
+    .contact-details b {
+      color: var(--menu-accent);
+    }
+    @media (max-width: 800px) {
+      nav { min-width: 60px; width: 60px; padding-top: 10px; }
+      nav h1 { display: none; }
+      nav a { padding: 12px 10px; font-size: 1em; }
+      .main-container { margin-left: 60px; }
+      main { padding: 1.2em 3vw; }
     }
     @media (max-width: 600px) {
-      nav { position: relative; width: 100vw; min-width: unset; padding-top: 0.5rem;}
-      nav ul { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around;}
-      nav li { margin: 0.2rem 0.5rem; }
-      main { margin-left: 0; padding: 1rem 0.5rem; }
+      .main-container { flex-direction: column; margin-left: 54px; }
+      main { padding: 0.7em 2vw; }
+      nav { width: 54px; min-width: 54px; }
+      h2 { font-size: 1.1em; }
     }
   </style>
 </head>
 <body>
   <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="personnel.html">Personnel</a></li>
-      <li><a href="rnd.html">Research & Development</a></li>
-      <li><a href="products.html">Products & Services</a></li>
-      <li><a href="contact.html" class="active">Contact Us</a></li>
-    </ul>
+    <h1>abiral-infrasolutions</h1>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="personnel.html">Personnel</a>
+    <a href="rnd.html">Research & Development</a>
+    <a href="products.html">Products & Services</a>
+    <a href="contact.html" class="active">Contact Us</a>
   </nav>
-  <main>
-    <h1>Contact Us</h1>
-    <h2>Get in touch with abiral-infrasolutions Pvt. Ltd.</h2>
-    <div class="contact-details">
-      <b>Registered Office:</b><br>
-      Balkot, Bhaktapur Metropolitan City,<br>
-      Ward No. 2, Province-3, Nepal<br>
-      <br>
-      <b>Phone:</b> <br>
-      <span>+977-9800000000</span>
-      <br><br>
-      <b>Email:</b> <br>
-      <span>info@abiral-infrasolutions.com</span>
-      <br><br>
-      <b>Registration Number:</b> 311790/2077-078<br>
-      <b>PAN Number:</b> 610530462<br>
-      <b>Date of Incorporation:</b> 2077-08-09 B.S. (Approx. November 2020 A.D.)<br>
-      <br>
-      <b>Contact Person:</b><br>
-      Ram Sharma (Managing Director)<br>
-      Email: ram.sharma@abiral-infrasolutions.com<br>
-      Mobile: +977-9800000001<br>
-      <br>
-      <b>Working Hours:</b> <br>
-      Sunday – Friday: 10:00 AM – 5:00 PM <br>
-      Saturday: Closed
-    </div>
-  </main>
+  <div class="main-container">
+    <main>
+      <h1>Contact Us</h1>
+      <h2>Get in touch with abiral-infrasolutions Pvt. Ltd.</h2>
+      <div class="contact-details">
+        <b>Registered Office:</b><br>
+        Bagmati Province, Kathmandu District,<br>
+        Kathmandu Metropolitan City, Ward No. 3,<br>
+        Kathmandu, Nepal<br><br>
+        <b>Phone:</b> 9851140313<br>
+        <b>Email:</b> <a href="mailto:ecohydro@abiral-infrasolutions.com">ecohydro@abiral-infrasolutions.com</a><br>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
