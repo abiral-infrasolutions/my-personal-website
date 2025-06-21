@@ -32,6 +32,7 @@
       box-shadow: 2px 0 10px rgba(0,0,0,0.04);
       position: fixed;
       z-index: 10;
+      transition: width 0.2s;
     }
     nav h1 {
       color: var(--highlight);
@@ -53,71 +54,80 @@
       background: var(--menu-accent);
       border-left: 4px solid var(--highlight);
     }
-    .content-wrap {
-      margin-left: 220px;
+    .main-container {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      margin-left: 220px;
       width: 100%;
       min-height: 100vh;
-      padding: 0;
-    }
-    main {
-      flex: 1 1 0;
-      padding: 2em 2vw 2em 5vw;
-      max-width: 750px;
-      min-width: 0;
-      width: 100%;
       box-sizing: border-box;
     }
+    main {
+      flex: 1 1 0%;
+      padding: 2em 5vw;
+      max-width: 750px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     .video-right {
-      flex: 0 0 350px;
+      flex: 0 0 340px;
+      min-width: 220px;
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
       padding: 2em 2em 0 0;
-      min-width: 240px;
+      box-sizing: border-box;
     }
     .video-right video {
-      max-width: 320px;
+      aspect-ratio: 9/16;
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 16px rgba(60,80,120,0.09);
-      background: #000;
-      outline: none;
+      height: 430px;
+      max-height: 80vh;
+      object-fit: cover;
+      background: #222;
+      border-radius: 18px;
+      box-shadow: 0 2px 20px rgba(60,80,120,0.13);
       display: block;
-      aspect-ratio: 16/9;
+    }
+    h2 {
+      color: var(--highlight);
+      margin-top: 0.5em;
+    }
+    h3 {
+      margin-bottom: 0.25em;
+      color: #3a506b;
+    }
+    ul {
+      margin-top: 0.3em;
+      margin-bottom: 1.2em;
+      padding-left: 1.4em;
     }
     @media (max-width: 1100px) {
-      .video-right { flex: 0 0 220px; min-width: 160px; padding: 2em 1em 0 0; }
-      .video-right video { max-width: 200px; }
+      .main-container { flex-direction: column; }
+      main { max-width: 100%; }
+      .video-right {
+        padding: 1em 0 0 0;
+        min-width: unset;
+        flex: none;
+        justify-content: center;
+      }
+      .video-right video { height: 340px; }
     }
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       nav { min-width: 60px; width: 60px; padding-top: 10px; }
       nav h1 { display: none; }
       nav a { padding: 12px 10px; font-size: 1em; }
-      .content-wrap { margin-left: 60px; }
-      main { padding-left: 3vw; }
+      .main-container { margin-left: 60px; }
+      main { padding: 1.2em 3vw; }
+      .video-right video { height: 240px; }
     }
-    @media (max-width: 700px) {
-      .content-wrap {
-        flex-direction: column;
-        margin-left: 60px;
-      }
-      .video-right {
-        order: 2;
-        width: 100%;
-        justify-content: center;
-        padding: 1em 0 0 0;
-      }
-      .video-right video { max-width: 100%; }
-    }
-    @media (max-width: 500px) {
-      nav { position: fixed; width: 54px; min-width: 54px; }
-      .content-wrap { margin-left: 54px; }
+    @media (max-width: 600px) {
+      .main-container { flex-direction: column; margin-left: 54px; }
+      .video-right video { height: 160px; }
       main { padding: 0.7em 2vw; }
+      nav { width: 54px; min-width: 54px; }
       h2 { font-size: 1.1em; }
-      .video-right { padding: 0.5em 0 0 0; }
     }
   </style>
 </head>
@@ -131,7 +141,7 @@
     <a href="products.html">Products & Services</a>
     <a href="contact.html">Contact Us</a>
   </nav>
-  <div class="content-wrap">
+  <div class="main-container">
     <main>
       <h2>Welcome to abiral-infrasolutions Pvt. Ltd.</h2>
       <p>
@@ -163,14 +173,21 @@
       </ul>
     </main>
     <div class="video-right">
-      <video id="introVideo" src="asdf.mp4" muted autoplay loop playsinline></video>
+      <video
+        id="introVideo"
+        src="asdf.mp4"
+        muted
+        autoplay
+        loop
+        playsinline
+      ></video>
     </div>
   </div>
   <script>
-    // Ensures only first 10s is looped, regardless of video duration
+    // Loop only the first 3 seconds of the video
     const video = document.getElementById('introVideo');
     video.addEventListener('timeupdate', function () {
-      if (video.currentTime >= 10) {
+      if (video.currentTime >= 3) {
         video.currentTime = 0;
         video.play();
       }
